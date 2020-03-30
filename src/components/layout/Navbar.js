@@ -13,7 +13,7 @@ export class Navbar extends Component {
   //This checks the types of each prop. make sure to import.
   static propTypes = {
     title: PropTypes.string.isRequired,
-    icont: PropTypes.string.isRequired
+    icon: PropTypes.string.isRequired
   };
 
   render() {

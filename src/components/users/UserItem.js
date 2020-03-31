@@ -15,7 +15,7 @@ class UserItem extends Component {
       <div className='card text-center'>
         <img
           src={avatar_url}
-          alt={Object.keys(avatar_url)}
+          alt={login}
           className='round-img'
           style={{ width: '60px' }} />
         <h3>{login}</h3>

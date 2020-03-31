@@ -3,33 +3,34 @@ import React, { Component } from 'react'
 class Users extends Component {
   //State should be an object. Pass arrays within the object.
   state = {
-    users =[
+    users: [
       {
-        login: "mojombo",
+        login: 'mojombo',
         id: 1,
-        avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-        html_url: "https://github.com/mojombo"
+        avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
+        html_url: 'https://github.com/mojombo'
       },
       {
-        login: "defunkt",
+        login: 'defunkt',
         id: 2,
-        avatar_url: "https://avatars0.githubusercontent.com/u/2?v=4",
-        html_url: "https://github.com/defunkt"
+        avatar_url: 'https://avatars0.githubusercontent.com/u/2?v=4',
+        html_url: 'https://github.com/defunkt'
       },
       {
-        login: "pjhyett",
+        login: 'pjhyett',
         id: 3,
-        avatar_url: "https://avatars0.githubusercontent.com/u/3?v=4",
-        html_url: "https://github.com/pjhyett"
-      },
+        avatar_url: 'https://avatars0.githubusercontent.com/u/3?v=4',
+        html_url: 'https://github.com/pjhyett'
+      }
     ]
   }
-
 
   render() {
     return (
       <div>
-
+        {this.state.users.map(user => (
+          <div key={user.id}>{user.login}</div>
+        ))}
       </div>
     )
   }

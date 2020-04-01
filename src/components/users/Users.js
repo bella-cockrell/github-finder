@@ -31,6 +31,7 @@ class Users extends Component {
       <div>
         {this.state.users.map(user => (
           <UserItem key={user.id} user={user} />
+          //This mapping method defines a prop which is used in UserItem.js
         ))}
       </div>
     )

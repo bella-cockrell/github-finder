@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class UserItem extends Component {
   render() {
     const { avatar_url, login, html_url } = this.props.user
-    //destructoring
+    //destructoring from the props in the mapping method in Users.js
     return (
       <div className="card text-center">
         <img

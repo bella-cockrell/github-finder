@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import UserItem from './UserItem'
 
 class Users extends Component {
   //State should be an object. Pass arrays within the object.
@@ -29,7 +30,7 @@ class Users extends Component {
     return (
       <div>
         {this.state.users.map(user => (
-          <div key={user.id}>{user.login}</div>
+          <UserItem key={user.id} user={user} />
         ))}
       </div>
     )

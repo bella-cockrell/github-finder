@@ -10,7 +10,7 @@ class UserItem extends Component {
           src={avatar_url}
           alt={login}
           className="round-img"
-          style={{ width: '60px' }}
+          style={{ width: '60px' }} //you can pass a style without CSS. Need double curly braces.
         />
         <h3>{login}</h3>
         <div>

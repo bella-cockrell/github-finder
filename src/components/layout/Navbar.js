@@ -1,33 +1,31 @@
 //class-based component
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types' //This functions same as TypeScript
 
 export class Navbar extends Component {
   //These will be called if there is no prop passed. Passed props will override this.
   static defaultProps = {
     title: 'Github Finder',
     icon: 'fab fa-github'
-  };
+  }
 
   //This checks the types of each prop. make sure to import.
   static propTypes = {
     title: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired
-  };
+  }
 
   render() {
     return (
-      <nav className='navbar bg-primary'>
+      <nav className="navbar bg-primary">
         <h1>
           <i className={this.props.icon} /> {this.props.title}
-
         </h1>
       </nav>
-    );
+    )
   }
 }
 
-export default Navbar;
+export default Navbar
 
 //fab fa-github is from Font Awesome

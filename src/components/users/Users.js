@@ -28,7 +28,7 @@ class Users extends Component {
 
   render() {
     return (
-      <div>
+      <div style={userStyle}>
         {this.state.users.map(user => (
           <UserItem key={user.id} user={user} />
           //This mapping method defines a prop which is used in UserItem.js
@@ -38,4 +38,9 @@ class Users extends Component {
   }
 }
 
+const userStyle = {
+  display: 'grid', //If not in CSS, must put value in apos
+  gridTemplateColumns: 'repeat(3, 1fr)', //If not in CSS, must use pascalcase not kebab
+  gridGap: '1rem'
+}
 export default Users

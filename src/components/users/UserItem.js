@@ -1,8 +1,7 @@
 import React from 'react'
 
-const UserItem = props => {
-  const { avatar_url, login, html_url } = props.user
-  //destructoring from the props in the mapping method in Users.js
+const UserItem = ({ user: { login, avatar_url, html_url } }) => {
+  //destructoring in the props parameter (see mapping method in Users.js). Note it uses colon.
 
   return (
     <div className="card text-center">

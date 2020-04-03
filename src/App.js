@@ -6,7 +6,7 @@ import './App.css'
 
 class App extends Component {
   componentDidMount() {
-    axios.get('https://api.github.com/users').then(res => console.log(res.data))
+    axios.get('https://api.github.com/users').then(res => console.log(res.data)) //.data is axios
   }
 
   render() {

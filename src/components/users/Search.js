@@ -6,9 +6,7 @@ export class Search extends Component {
   }
   /*If a stateful component has an event handler, the event needs to be defined
 before the render. Note: e stands for event */
-  onChange = (e) => {
-    this.setState({ text: e.target.value })
-  }
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value })
   //.target refers to the object onto which the event was dispatched: 'text'
 
   render() {

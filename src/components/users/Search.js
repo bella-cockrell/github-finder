@@ -8,11 +8,14 @@ export class Search extends Component {
 before the render. Note: e stands for event */
   onChange = (e) => this.setState({ [e.target.name]: e.target.value })
   //.target refers to the object onto which the event was dispatched: 'text'
+  onSubmit = (e) => e.preventDefault()
+  //Not having arrow function would need a .bind because otherwise onSubmit would produce undefined
+  //.preventDefault cancels the event called.
 
   render() {
     return (
       <div>
-        <form className="form">
+        <form onSubmit={this.onSubmit.bind(this)} className="form">
           <input
             type="text"
             name="text"

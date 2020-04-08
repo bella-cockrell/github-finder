@@ -21,7 +21,7 @@ class App extends Component {
     this.setState({ users: res.data, loading: false }) //4
   }
 
-  //Search Github users
+  //Search Github users.
   searchUsers = (text) => {
     console.log(text)
   }

@@ -8,7 +8,10 @@ export class Search extends Component {
 before the render. Note: e stands for event */
   onChange = (e) => this.setState({ [e.target.name]: e.target.value })
   //.target refers to the object onto which the event was dispatched: 'text'
-  onSubmit = (e) => e.preventDefault()
+  onSubmit = (e) => {
+    e.preventDefault()
+    console.log(this.state.text)
+  }
   //Not having arrow function would need a .bind because otherwise onSubmit would produce undefined
   //.preventDefault cancels the event called.
 

@@ -11,19 +11,25 @@ class App extends Component {
     loading: false //1
   }
 
-  async componentDidMount() {
-    this.setState({ loading: true }); //2
+  // async componentDidMount() {
+  //   this.setState({ loading: true }); //2
 
-    const res = await axios.get(`https://api.github.com/users?client_id
+  //   const res = await axios.get(`https://api.github.com/users?client_id
+  //     ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret
+  //     ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`); //3
+
+  //   this.setState({ users: res.data, loading: false }); //4
+  // }
+
+  //Search Github users > goes to API endpoint. As arrow function, async works differently.
+  searchUsers = async text => {
+    this.setState({ loading: true })
+
+    const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id
       ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret
-      ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`); //3
+      ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
-    this.setState({ users: res.data, loading: false }) //4
-  }
-
-  //Search Github users.
-  searchUsers = (text) => {
-    console.log(text)
+    this.setState({ users: res.data.items, loading: false }); //Why .items? Console.log out res.data and then select items in object.
   }
 
   render() {
@@ -31,7 +37,7 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div className="container">
-          <Search searchUsers={this.searchUsers} />
+          <Search searchUsers={this.searchUsers} /> {/* This is passed up from Search.js via searchUsers function on line 25*/}
           <Users loading={this.state.loading} users={this.state.users} />
           {/*5*/}
         </div>

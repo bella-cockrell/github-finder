@@ -7,7 +7,8 @@ export class Search extends Component {
   }
 
   static propTypes = {
-    searchUsers: PropTypes.func.isRequired
+    searchUsers: PropTypes.func.isRequired,
+    clearUsers: PropTypes.func.isRequired
   }
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value })
@@ -37,6 +38,9 @@ export class Search extends Component {
             className="btn btn-dark btn-block"
           />
         </form>
+        <button className="btn-light btn-block" onClick={this.props.clearUsers}>
+          Clear
+        </button>
       </div>
     )
   }
@@ -66,4 +70,6 @@ Please note, for arrow functions, .this always refers to the object that defined
 Additionally, .target refers to the object onto which the event was dispatched: 'text'
 
 Also, .preventDefault cancels the event called.
+
+For clearUsers, we're sending the prop up because it affects the App.js
 */

@@ -1,8 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Search extends Component {
   state = {
     text: ''
+  }
+
+  static propTypes = {
+    searchUsers: PropTypes.func.isRequired
   }
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value })
@@ -10,7 +15,7 @@ export class Search extends Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-    this.props.searchUsers(this.state.text)
+    this.props.searchUsers(this.state.text) //Prop will be passed up via function.
     this.setState({ text: '' })
   }
   //2. As an arrow function, we do not need to do this.onSubmit.bind(this) below.
@@ -52,8 +57,7 @@ Step 2: the method onChange is fired off. Text key in state object is updated to
 
 For onSubmit:
   Step 1: e.preventDefault stops the function from trying to send data off.
-  Step 2: this.props.searchUsers is passed up to the App.js level.
-
+  Step 2: this.props.searchUsers is used to pass this.state.text up to the App.js level.
 
 Additional notes:
 Please note, for arrow functions, .this always refers to the object that defined the function,

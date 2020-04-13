@@ -8,7 +8,8 @@ import './App.css'
 class App extends Component {
   state = {
     users: [],
-    loading: false //1
+    loading: false,
+    alert: null //1
   }
 
   // async componentDidMount() {
@@ -35,6 +36,10 @@ class App extends Component {
   //Clear users from state
   clearUsers = () => this.setState({ users: [], loading: false })
 
+  //Alert
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg, type } });
+  }
   render() {
     const { users, loading } = this.state;
 
@@ -42,10 +47,17 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div className="container">
-          <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers}
-            showClear={users.length > 0 ? true : false} />
+          <Search
+            searchUsers={this.searchUsers}
+            clearUsers={this.clearUsers}
+            showClear={users.length > 0 ? true : false}
+            setAlert={this.setAlert}
+          />
           {/* These is passed up from Search.js via functions */}
-          <Users loading={loading} users={users} />
+          <Users
+            loading={loading}
+            users={users}
+          />
           {/*5*/}
         </div>
       </div>

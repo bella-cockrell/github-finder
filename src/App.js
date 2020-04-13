@@ -38,7 +38,7 @@ class App extends Component {
 
   //Alert
   setAlert = (msg, type) => {
-    this.setState({ alert: { msg, type } });
+    this.setState({ alert: { msg, type } }); //If msg: msg, can just put msg
   }
   render() {
     const { users, loading } = this.state;

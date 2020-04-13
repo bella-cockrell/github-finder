@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import Navbar from './components/layout/Navbar'
-import Users from './components/users/Users'
-import Search from './components/users/Search'
-import axios from 'axios'
-import './App.css'
+import React, { Component } from 'react';
+import Navbar from './components/layout/Navbar';
+import Users from './components/users/Users';
+import Search from './components/users/Search';
+import Alert from './components/layout/Alert';
+import axios from 'axios';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -36,17 +37,20 @@ class App extends Component {
   //Clear users from state
   clearUsers = () => this.setState({ users: [], loading: false })
 
-  //Alert
+  //Set alert if text from Search.js is undefined
   setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } }); //If msg: msg, can just put msg
+
+    setTimeout(() => this.setState({ alert: null }), 2000);
   }
   render() {
-    const { users, loading } = this.state;
+    const { users, loading, alert } = this.state;
 
     return (
       <div className="App">
         <Navbar />
         <div className="container">
+          <Alert alert={alert} /> {/*this alert will not go away without setTimeout*/}
           <Search
             searchUsers={this.searchUsers}
             clearUsers={this.clearUsers}

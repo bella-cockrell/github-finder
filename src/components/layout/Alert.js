@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Alert = ({ alert }) => { //takes in object, passed as prop
+const Alert = ({ alert }) => { //takes in object, passed as prop
   return (
     alert != null && (
       <div className={`alert alert-${alert.type}`}>
@@ -9,3 +9,5 @@ export const Alert = ({ alert }) => { //takes in object, passed as prop
     )
   )
 }
+
+export default Alert;

@@ -23,6 +23,8 @@ export class Search extends Component {
   //2. As an arrow function, we do not need to do this.onSubmit.bind(this) below.
 
   render() {
+    const { clearUsers, showClear } = this.props;
+
     return (
       <div>
         <form onSubmit={this.onSubmit} className="form">
@@ -39,8 +41,8 @@ export class Search extends Component {
             className="btn btn-dark btn-block"
           />
         </form>
-        {this.props.showClear && (
-          <button className="btn-light btn-block" onClick={this.props.clearUsers}>
+        {showClear && (
+          <button className="btn-light btn-block" onClick={clearUsers}>
             Clear
           </button>
         )}
